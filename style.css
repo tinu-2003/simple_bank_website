@@ -1,0 +1,86 @@
+#reg_icon:hover{
+     animation: fa-fade 1.5s infinite;
+}
+
+#login_icon:hover{
+    animation: fa-beat-fade 1.5s infinite;
+}
+
+body{
+    background-color: rgba(0, 255, 255, 0.077);
+}
+*{
+padding: 0;
+margin: 0;
+}
+
+#slide-left {
+  opacity: 0;
+  transform: translateX(-1000%);
+  animation: slideInLeft 2s forwards;
+}
+
+#slide-right {
+  opacity: 0;
+  transform: translateX(1000%);
+  animation: slideInRight 4s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#why-left-slid{
+  opacity: 0;
+  transform: translateX(-1000%);
+  animation: whyleft 4s forwards;
+
+}
+
+@keyframes whyleft {
+  to{
+    opacity: 1;
+    transform: translateX(0);
+    
+  }
+}
+
+#why-right-slid{
+  opacity: 0;
+  transform: translateX(1000%);
+  animation: whyright 4s forwards;
+  /*  */
+}
+
+@keyframes whyright {
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#section1{
+background-color: #E6E6FA;
+height: 90vh;
+}
+
+.card-hover-zoom {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+
+}
+
+.card-hover-zoom:hover {
+  transform: scale(1.05); /* zoom 5% */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
