@@ -6,8 +6,70 @@
         <!-- log -->
      <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
     <title>Login</title>
+<!-- Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+                <div class="card-box shadow w-25 p-4">
+                  
+                        <!-- image section -->
+                          <img src="./images/logo.png" class="mt-0 align-item-center justify-content-center" width="80" alt="Logo">
+                          <h5 class="text-primary text-center fw-bold">NovaBank</h5>
+                          <p class="text-center text-muted mb-4">Access Your account Securely</p>
+                
+
+                   <!-- <form> -->
+         
+    <!-- Account no -->
+                              <div class="input-group">
+                           <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                           <input type="text" class="form-control" id="userAccountno" placeholder="Account No" required>
+                        </div>
+    <!-- password -->
+                              <div class="input-group">
+                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                           <input type="text" class="form-control" id="pass" placeholder="Password" required>
+                        </div>
+
+                        <div>
+                            
+                            <input type="checkbox"><span>Remember me</span>
+                            <a href="">Forgot Password?</a>
+                        </div>
     
+                        <button type="submit" class="btn btn-primary w-100 mt-3 mb-3" onclick="login()">Login</button>
+                        <form class="text-center">Don't have an account? <a class="text-center" href="./Registration.html">Register</a></p>
+ <!-- </form> -->
+                </div>
+            </div>
+
+
+            <script>
+                function login(){
+                    let useraccountno = userAccountno.value
+                    let userpassword  = pass.value
+                   
+                    let olddata = JSON.parse(localStorage.getItem(useraccountno))
+
+                //  console.log(olddata.accountno,olddata.pass);
+
+                if(olddata.accountno ==useraccountno && olddata.pass == userpassword) {
+
+                    alert("Login")
+                    sessionStorage.setItem("loggedUserId", useraccountno);
+                    window.location.href="./dasboard.html"
+                }
+
+                else{
+                    alert("login error")
+                }    
+                    
+                }
+            </script>
+
 </body>
 </html>
