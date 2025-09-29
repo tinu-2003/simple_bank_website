@@ -37,7 +37,7 @@
 
   <!-- heading  -->
   <div class="text-center mt-5">
-    <h4 id="name" class="text-primary fw-bold" style="font-size:40px;">Welcome</h4>
+    <h2 id="name" class="text-primary fw-bold" style="font-size:40px;">Welcome</h2>
     <p class="fw-bold" style="font-size: 20px;">Online Banking Service</p>
   </div>
 
@@ -64,11 +64,11 @@
 
     </div>
 
-  </div>
+ 
   <!-- transaction History -->
-  <div class="text-center mt-5 " style="margin-left: 500px;">
+  <div class="text-center mt-5  col-md-12 ">
 
-    <div class="card p-3 shadow" style="width: 500px;">
+    <div class="card p-3 shadow" >
       <h5 class="text-primary fw-bold mb-4 col-md-12">Transaction History</h5>
 
       <div id="transaction" class="col-md-12"> </div>
@@ -76,44 +76,28 @@
 
     </div>
   </div>
+   </div>
 
   <script>
 
-    // TO SHOW NAME ON WELCOME
-
-
-
-    // arrow function that runs when DOM is ready
-    window.addEventListener("DOMContentLoaded", () => {
-      const userId = sessionStorage.getItem("loggedUserId");
-
-      if (!userId) {
-        // if not logged in, redirect to login
-        window.location.href = "login.html";
-        return;
-      }
-
-      // get user data from localStorage
-      const userData = JSON.parse(localStorage.getItem(userId));
-
-
-      if (userData) {
-        // assuming your saved object has a property "name"
+// TO SHOW NAME ON WELCOME
+ 
+      let userid = sessionStorage.getItem("loggedUserId")
+      let userdata = JSON.parse(localStorage.getItem(userid))
+      // console.log(userdata.name);
+      
         document.getElementById("name").innerHTML =
-          `Welcome <span style="text-transform: uppercase;">${userData.name}<span>`;
+          `Welcome <span style="text-transform: uppercase;">${userdata.name}<span>`;
 
-        document.getElementById("display_bal").innerHTML = `Balance : $${userData.balance}`
-        document.getElementById("display_bal_withderaw").innerHTML = `Balance : $${userData.balance}`
-        // console.table(userData.transaction);
-        // document.getElementById("transaction").innerHTML =`table(userData.transaction)`
+             document.getElementById("display_bal").innerHTML = `Balance : $${userdata.balance}`
+        document.getElementById("display_bal_withderaw").innerHTML = `Balance : $${userdata.balance}`
 
+//  to show transaction
 
-        // new code start
-        // Assuming userData.transaction is an array
-        let transactions = userData.transaction;
+let tran = userdata.transaction
+console.log(tran);
 
-        // Start table HTML
-        let tableHTML = `
+          let tableHTML = `
   <table border="1" class="table table-striped class="col-md-12"">
     <thead>
       <tr>
@@ -126,9 +110,9 @@
     <tbody>
 `;
 
-        // Loop through transactions and add rows
-        transactions.forEach(trx => {
-          tableHTML += `
+          // Loop through transactions and add rows
+          tran.forEach(trx => {
+            tableHTML += `
       <tr>
         <td>${trx.day}</td>
         <td>${trx.type}</td>
@@ -136,29 +120,13 @@
         <td>${trx.balance}</td>
       </tr>
     `;
-        });
+          });
 
-        tableHTML += `</tbody></table>`;
-
-        // Insert into the DOM
-        document.getElementById("transaction").innerHTML = tableHTML;
-
-
-
-        // new code end
-
-
-
-      }
-    });
+          document.getElementById("transaction").innerHTML = tableHTML;
 
 
 
 
-    // window.addEventListener("DOMContentLoaded", () => {
-
-
-    // });
 
 
     // FUNCTION DEPOSIT
@@ -217,12 +185,12 @@
 
         localStorage.setItem(userid, JSON.stringify(olddata))
 
-        // new code start
-        // Assuming userData.transaction is an array
-        let transactions = olddata.transaction;
+//  to show transaction
 
-        // Start table HTML
-        let tableHTML = `
+let tran = olddata.transaction
+console.log(tran);
+
+          let tableHTML = `
   <table border="1" class="table table-striped class="col-md-12"">
     <thead>
       <tr>
@@ -235,9 +203,9 @@
     <tbody>
 `;
 
-        // Loop through transactions and add rows
-        transactions.forEach(trx => {
-          tableHTML += `
+          // Loop through transactions and add rows
+          tran.forEach(trx => {
+            tableHTML += `
       <tr>
         <td>${trx.day}</td>
         <td>${trx.type}</td>
@@ -245,17 +213,13 @@
         <td>${trx.balance}</td>
       </tr>
     `;
-        });
+          });
 
-        tableHTML += `</tbody></table>`;
-
-        // Insert into the DOM
-        document.getElementById("transaction").innerHTML = tableHTML;
+          document.getElementById("transaction").innerHTML = tableHTML;
 
 
-
-        // new code end
-      }
+ 
+     }
       else {
         alert("Wrong upi pin")
       }
@@ -317,12 +281,13 @@
           olddata.transaction.push(transaction);
 
           localStorage.setItem(userid, JSON.stringify(olddata))
+      document.getElementById("transaction").innerHTML =`<table>${transaction.day} ${transaction.type} ${transaction.amount} ${transaction.balance}</table>`     
 
-          // new code start
-          // Assuming userData.transaction is an array
-          let transactions = olddata.transaction;
+       //  to show transaction
 
-          // Start table HTML
+let tran = olddata.transaction
+console.log(tran);
+
           let tableHTML = `
   <table border="1" class="table table-striped class="col-md-12"">
     <thead>
@@ -337,7 +302,7 @@
 `;
 
           // Loop through transactions and add rows
-          transactions.forEach(trx => {
+          tran.forEach(trx => {
             tableHTML += `
       <tr>
         <td>${trx.day}</td>
@@ -348,14 +313,7 @@
     `;
           });
 
-          tableHTML += `</tbody></table>`;
-
-          // Insert into the DOM
           document.getElementById("transaction").innerHTML = tableHTML;
-
-
-
-          // new code end
         }
         else {
           alert("insufficient balance")
