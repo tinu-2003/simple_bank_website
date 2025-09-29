@@ -1,97 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- log -->
-     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <!-- log -->
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
     <title>Registration</title>
-         <!-- Flowbite CDN -->
+    <!-- Flowbite CDN -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-         <!-- bootstrap -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-         <!-- Font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-           <div class="d-flex align-items-center justify-content-center vh-100">
-                <div class="card-box shadow w-25 p-4">
-                  
-                        <!-- image section -->
-                          <img src="./images/logo.png" class="mt-0 align-item-center justify-content-center" width="80" alt="Logo">
-                          <h5 class="text-primary text-center fw-bold">NovaBank</h5>
-                          <p class="text-center text-muted mb-4">Add Your Details To Register</p>
-                
- <!-- username -->
-                   <form>
-                        <div class="input-group">
-                           <span class="input-group-text"><i class="fa fa-user"></i></span>
-                           <input type="text" class="form-control" id="userName" placeholder="Name" required>
-                        </div>
-    <!-- Account no -->
-                              <div class="input-group">
-                           <span class="input-group-text"><i class="fa fa-id-card"></i></span>
-                           <input type="text" class="form-control" id="userAccountno" placeholder="Account No" required>
-                        </div>
-    <!-- password -->
-                              <div class="input-group">
-                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                           <input type="text" class="form-control" id="pass1" placeholder="Password" required>
-                        </div>
-    
-                        <!-- password re conformation -->
-    
-                          <div class="input-group">
-                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                           <input type="text" class="form-control" id="pass2" placeholder="Re-enter" required>
-                        </div>
-    
-                        <button type="submit" class="btn btn-primary w-100 mt-3 mb-3" onclick="passcheck()">Register</button>
-                        <form class="text-center">Already have an account? <a class="text-center" href="./login.html"> Sign in</a></p>
- </form>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="card-box shadow w-25 p-4">
+
+            <!-- image section -->
+            <img src="./images/logo.png" class="d-block mx-auto mt-0" width="80" alt="Logo">
+            <h5 class="text-primary text-center fw-bold">NovaBank</h5>
+            <p class="text-center text-muted mb-4">Add Your Details To Register</p>
+
+            <!-- username -->
+            <form>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" id="userName" placeholder="Name" required>
                 </div>
-            </div>
+                <!-- Account no -->
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                    <input type="text" class="form-control" id="userAccountno" placeholder="Account No" required>
+                </div>
+                <!-- password -->
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                    <input type="text" class="form-control" id="pass1" placeholder="Password" required>
+                </div>
+
+                <!-- password re conformation -->
+
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                    <input type="text" class="form-control" id="pass2" placeholder="Re-enter" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3 mb-3" onclick="passcheck()">Register</button>
+                <p class="text-center">Already have an account? <a class="text-center" href="./login.html"> Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
 
 
 
-            <!-- js -->
-             <script>
+    <!-- js -->
+    <script>
 
-                function passcheck() {
-                    
-                    let userpass1 = pass1.value
-                    let userpass2 = pass2.value
-                    if (userpass1 === userpass2 ) {
+        function passcheck() {
 
-                        let userdata = {
-                            name:userName.value,
-                            accountno:userAccountno.value,
-                            pass:pass1.value,
-                            balance:0
+            let userpass1 = pass1.value
+            let userpass2 = pass2.value
+            if (userpass1 === userpass2) {
 
-                        };
+                let userdata = {
+                    name: userName.value,
+                    accountno: userAccountno.value,
+                    pass: pass1.value,
+                    balance: 0
 
-                  let olddata = JSON.parse( localStorage.getItem(userAccountno.value))
-                        
-                        if( olddata&&olddata.accountno==userAccountno.value)
-                        {
-                            alert( "user already exist")
-                            window.location.href="./index.html"
-                        }
-                        else{
-                              localStorage.setItem(userAccountno.value,JSON.stringify(userdata))
-                                    alert("User registered successfully")
-                                    window.location.href="./login.html";
+                };
 
-                        }
-                    }
+                let olddata = JSON.parse(localStorage.getItem(userAccountno.value))
 
-                    else{
-                         alert("Passwords do not match. Please re-enter.")
-                    }
-                    
+                if (olddata && olddata.accountno == userAccountno.value) {
+                    alert("user already exist")
+                    window.location.href = "./index.html"
                 }
-             </script>
+                else {
+                    localStorage.setItem(userAccountno.value, JSON.stringify(userdata))
+                    alert("User registered successfully")
+                    window.location.href = "./login.html"
+
+                }
+            }
+
+            else {
+                alert("Passwords do not match. Please re-enter.")
+            }
+
+        }
+    </script>
 </body>
+
 </html>

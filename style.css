@@ -1,17 +1,18 @@
-#reg_icon:hover{
-     animation: fa-fade 1.5s infinite;
+#reg_icon:hover {
+  animation: fa-fade 1.5s infinite;
 }
 
-#login_icon:hover{
-    animation: fa-beat-fade 1.5s infinite;
+#login_icon:hover {
+  animation: fa-beat-fade 1.5s infinite;
 }
 
-body{
-    background-color: rgba(0, 255, 255, 0.077);
+body {
+  background-color: rgba(0, 255, 255, 0.077);
 }
-*{
-padding: 0;
-margin: 0;
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
 #slide-left {
@@ -40,7 +41,7 @@ margin: 0;
   }
 }
 
-#why-left-slid{
+#why-left-slid {
   opacity: 0;
   transform: translateX(-1000%);
   animation: whyleft 4s forwards;
@@ -48,14 +49,14 @@ margin: 0;
 }
 
 @keyframes whyleft {
-  to{
+  to {
     opacity: 1;
     transform: translateX(0);
-    
+
   }
 }
 
-#why-right-slid{
+#why-right-slid {
   opacity: 0;
   transform: translateX(1000%);
   animation: whyright 4s forwards;
@@ -63,15 +64,15 @@ margin: 0;
 }
 
 @keyframes whyright {
-  to{
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-#section1{
-background-color: #E6E6FA;
-height: 90vh;
+#section1 {
+  background-color: #E6E6FA;
+  height: 90vh;
 }
 
 .card-hover-zoom {
@@ -81,6 +82,7 @@ height: 90vh;
 }
 
 .card-hover-zoom:hover {
-  transform: scale(1.05); /* zoom 5% */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  /* zoom 5% */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
